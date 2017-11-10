@@ -10,6 +10,7 @@ namespace TestProject
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Test from Developer b");
         }
     }
 }
