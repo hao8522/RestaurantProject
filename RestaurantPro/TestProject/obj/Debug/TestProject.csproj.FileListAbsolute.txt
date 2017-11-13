@@ -1,0 +1,17 @@
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\TestProject.exe.config
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\TestProject.exe
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\TestProject.pdb
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\obj\Debug\TestProject.exe
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\obj\Debug\TestProject.pdb
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\BLL.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\EntityFramework.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\Models.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\DAL.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\BLL.pdb
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\Models.pdb
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\EntityFramework.xml
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\DAL.pdb
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\bin\Debug\DAL.dll.config
+D:\Git_EN\RestaurantProject\RestaurantPro\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache

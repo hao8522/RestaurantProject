@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="gb2312" />
+    <title>Home</title>
+    <meta name="keywords" content="AAA Restaurant" />
+    <meta name="description" content="AAA Restaurant" />
+    <link href="../../Styles/MainPage.css" rel="stylesheet" type="text/css" />
+    <link href="../../Styles/Default.css" rel="stylesheet" type="text/css" />
+
+    <script language="JavaScript" type="text/javascript">
+        var NowFrame = 1;
+        var MaxFrame = 2;
+        function scroll1(d1) {
+            if (Number(d1)) {
+                NowFrame = d1;
+            }
+            for (var i = 1; i < (MaxFrame + 1); i++) {
+                if (NowFrame == i) {
+                    document.getElementById(NowFrame).style.display = 'block';
+                }
+                else {
+                    document.getElementById(i).style.display = 'none';
+                }
+            }
+            {
+                if (NowFrame == MaxFrame)
+                    NowFrame = 1;
+                else
+                    NowFrame++;
+            }
+            theTimer = setTimeout('scroll1()', 3000);
+        }
+    </script>
+</head>
+<body onload="scroll1(1)">
+    <form id="form1">
+        <div id="container">
+            <div id="top">
+                <img src="~/Images/topbg.jpg" />
+            </div>
+            <div id="nav">
+                <div id="navlink">
+                    <ul>
+
+                        <li>@Html.ActionLink("Home", "Index", "Company")</li>
+
+                        <li>@Html.ActionLink("Overview", "Overview", "Company")</li>
+
+                        <li>@Html.ActionLink("News", "NewsList", "News")</li>
+
+
+                        <li>@Html.ActionLink("Dishes", "DishesShow", "Dishes")</li>
+
+                        <li>@Html.ActionLink("Surrounding", "Surrounding", "Company")</li>
+
+                        <li>@Html.ActionLink("Reservation", "DishesBook", "Dishes")</li>
+
+                        <li>@Html.ActionLink("Join Us", "JoinUs", "Company")</li>
+
+                        <li>@Html.ActionLink("Feedback", "Suggestions", "Company")</li>
+
+
+                        <li>@Html.ActionLink("Recruitment", "RecruitmentList", "Company")</li>
+
+                        <li>@Html.ActionLink("About Us", "AboutUs", "Company")</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="topflashDiv">
+                <div id="topflashbg">
+                    <img src="~/Images/topflash1.jpg" id="1" alt="" style="display: none;" />
+                    <img src="~/Images/topflash2.jpg" id="2" alt="" style="display: none;" />
+                </div>
+            </div>
+            <div id="content">
+                <div id="leftDiv">
+                    <div class="lefttitle">
+                        Overview
+                    </div>
+                    <div id="leftImage1">
+                        <img src="~/Images/leftimage1.jpg" />
+                    </div>
+                    <div id="leftText1">
+                       AAA, which was founded in 2009, It was also awarded the Five-Star Diamond by the American Academy of Hospitality Sciences. The AAA is advantageously located in the center of Beijing.AAA provides Huaiyang cuisine, Sichun cuisine, Guangdong cuisine, Shandong cuisine and Chinese cusine. 
+                    </div>
+                    <div class="lefttitle">
+                        Latest News
+                    </div>
+
+                    @if(ViewBag.list !=null){
+
+                        foreach(Models.News item in ViewBag.list)
+                        {
+
+
+                    <div class="newslist">
+                        <div class="newstitle">
+                            <a href='/News/NewsDetail?newsId=@item.NewsId'>@item.NewsTitle </a>
+                        </div>
+                        <div class="newsdate">
+                           @Models.UtilityHelper.ToShortDate(@item.PublishTime)
+                        </div>
+                    </div>
+                        }
+
+                    }
+
+                </div>
+                <div id="rightDiv">
+                    <div id="righttitle1">
+                    </div>
+                    <div id="righttitle2">
+                    </div>
+                    <div id="rightrec">
+                        <div class="recimage">
+                            <img src="../../Images/rec1.jpg" height="86" width="111" />
+                        </div>
+                        <div class="rectext">
+                            Semi-rotted vegetables soak overnight, cleaning several times to remove sediment, onion cut Ginger slices standby
+                            Ingredients 750 grams of pork 100 grams of pickled vegetable.
+                          </div>
+                        <div class="recimage">
+                            <img src="../../Images/rec2.jpg" height="86" width="111" />
+                        </div>
+                        <div class="rectext">
+                            plum dried vegetables in water for 5 minutes, then rinse repeatedly to no sediment, octagonal breaking into small pieces
+                        </div>
+                    </div>
+                    <div id="resinver">
+                        <img src="~/Images/huanjing1.jpg" style="display: none;" id="div1" border="0" />
+                        <img src="~/Images/huanjing2.jpg" style="display: none;" id="div2" border="0" />
+                        <img src="~/Images/huanjing3.jpg" style="display: none;" id="div3" border="0" />
+                        <img src="~/Images/huanjing4.jpg" style="display: none;" id="div4" border="0" />
+                    </div>
+                    <div id="rightScorll">
+                        <div class="zhaopaidiv">
+                            <div class="zhaopai">
+                                <img src="~/Images/zhaopai1.jpg" height="90" width="118" />
+                            </div>
+                            <div class="zhaopainame">
+                                Signature Dish 1
+                            </div>
+                        </div>
+                        <div class="zhaopaidiv">
+                            <div class="zhaopai">
+                                <img src="~/Images/zhaopai2.jpg" height="90" width="118" />
+                            </div>
+                            <div class="zhaopainame">
+                                Signature Dish 2
+                            </div>
+                        </div>
+                        <div class="zhaopaidiv">
+                            <div class="zhaopai">
+                                <img src="~/Images/zhaopai3.jpg" height="90" width="118" />
+                            </div>
+                            <div class="zhaopainame">
+                                Signature Dish 3
+                            </div>
+                        </div>
+                        <div class="zhaopaidiv">
+                            <div class="zhaopai">
+                                <img src="~/Images/zhaopai4.jpg" height="90" width="118" />
+                            </div>
+                            <div class="zhaopainame">
+                                Signature Dish 4
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div id="footercontent">
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">ContactUs</a></li>
+                        <li><a href="#">Join Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Other</a></li>
+                    </ul>
+                </div>
+                <div id="bq">
+                    Copyright(C)2010-2020   AAA Hotel
+                </div>
+            </div>
+            <div id="footerbottom">
+            </div>
+        </div>
+    </form>
+    <script language="JavaScript" type="text/javascript">
+    show();
+    var NowFrame = 1;
+    var MaxFrame = 4;
+    function show(d1) {
+        if (Number(d1)) {
+            clearTimeout(theTimer);
+            NowFrame = d1;
+        }
+        for (var i = 1; i < (MaxFrame + 1) ; i++) {
+            if (i == NowFrame)
+                document.getElementById('div' + NowFrame).style.display = '';
+            else
+                document.getElementById('div' + i).style.display = 'none';
+        }
+        {
+            if (NowFrame == MaxFrame)
+                NowFrame = 1;
+            else
+                NowFrame++;
+        }
+        theTimer = setTimeout('show()', 3000);
+    }
+
+    </script>
+</body>
+
+</html>
+
+
+
+

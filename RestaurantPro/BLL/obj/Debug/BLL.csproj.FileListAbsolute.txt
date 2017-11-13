@@ -1,0 +1,12 @@
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\bin\Debug\BLL.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\bin\Debug\BLL.pdb
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\bin\Debug\DAL.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\bin\Debug\Models.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\bin\Debug\EntityFramework.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\bin\Debug\DAL.pdb
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\bin\Debug\DAL.dll.config
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\bin\Debug\Models.pdb
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\bin\Debug\EntityFramework.xml
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\obj\Debug\BLL.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\BLL\obj\Debug\BLL.pdb

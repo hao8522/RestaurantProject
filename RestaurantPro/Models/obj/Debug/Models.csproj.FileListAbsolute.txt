@@ -1,0 +1,4 @@
+D:\Git_EN\RestaurantProject\RestaurantPro\Models\bin\Debug\Models.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\Models\bin\Debug\Models.pdb
+D:\Git_EN\RestaurantProject\RestaurantPro\Models\obj\Debug\Models.dll
+D:\Git_EN\RestaurantProject\RestaurantPro\Models\obj\Debug\Models.pdb

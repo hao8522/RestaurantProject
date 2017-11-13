@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <title>AAA</title>
+    <link rel="Shortcut Icon" href="~/Styles/Images/clogo.ico" />
+    <link href="~/Styles/MainPage.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/MasterPage.css" rel="stylesheet" type="text/css" />
+    <script language="JavaScript" type="text/javascript">
+        var NowFrame = 1;
+        var MaxFrame = 2;
+        function scroll1(d1) {
+            if (Number(d1)) {
+                NowFrame = d1;
+            }
+            for (var i = 1; i < (MaxFrame + 1); i++) {
+                if (NowFrame == i) {
+                    document.getElementById(NowFrame).style.display = 'block';
+                }
+                else {
+                    document.getElementById(i).style.display = 'none';
+                }
+            }
+            {
+                if (NowFrame == MaxFrame)   //setting for next page
+                    NowFrame = 1;
+                else
+                    NowFrame++;
+            }
+            theTimer = setTimeout('scroll1()', 3000);   //set time out for next page
+        }
+    </script>
+</head>
+<body onload="scroll1(1)">
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+
+                    <li>@Html.ActionLink("Home", "Index", "Company")</li>
+
+                    <li>@Html.ActionLink("Overview", "Overview", "Company")</li>
+
+                    <li>@Html.ActionLink("News", "NewsList", "News")</li>
+
+
+                    <li>@Html.ActionLink("Dishes", "DishesShow", "Dishes")</li>
+
+                    <li>@Html.ActionLink("Surrounding", "Surrounding", "Company")</li>
+
+                    <li>@Html.ActionLink("Reservation", "DishesBook", "Dishes")</li>
+
+                    <li>@Html.ActionLink("Join Us", "JoinUs", "Company")</li>
+
+                    <li>@Html.ActionLink("Feedback", "Suggestions", "Company")</li>
+
+
+                    <li>@Html.ActionLink("Recruitment", "RecruitmentList", "Company")</li>
+
+                    <li>@Html.ActionLink("About Us", "AboutUs", "Company")</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="topflashDiv">
+            <div id="topflashbg">
+                <img src="~/Images/topflash1.jpg" id="1" alt="" style="display: none;" />
+                <img src="~/Images/topflash2.jpg" id="2" alt="" style="display: none;" />
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="leftpage">
+
+                <div class="lefttitle">
+                    Navigation
+                </div>
+                <div class="content1">
+                    <div class="conitem">
+                        <a href="#">Company</a>
+                    </div>
+                    <div class="conitem">
+                        <a href="#">Company Culture</a>
+                    </div>
+
+                    <div class="conitem">
+                        <a href="#">History</a>
+                    </div>
+                </div>
+                <div class="lefttitle">
+                    Contact Us
+                </div>
+                <div class="content2">
+                    <div style="padding-left: 33px; padding-right: 0px; font: 12px/18px simsun; color: #3f3b32;">
+                        Address：Wellington CBD<br />
+
+                        Phone：04-66666666<br />
+                        <br />
+                        Fax：04-66666666<br />
+                        Email：boss@gmail.com
+                    </div>
+                </div>
+            </div>
+
+            <div id="rightpage">
+                <div class="righttitle">
+                    Location:AAA Hotel> Overview
+                </div>
+                <div class="contentDiv">
+                    <div style="width: 655px; float: left; margin: 30px 0px 0px 40px; display: inline;
+        color: #3F3B32;">
+                        @RenderBody()
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footercontent">
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">ContactUs</a></li>
+                    <li><a href="#">Join Us</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Other</a></li>
+                </ul>
+            </div>
+            <div id="bq">
+                Copyright(C)2010-2020   AAA Restaurant
+            </div>
+        </div>
+        <div id="footerbottom">
+        </div>
+    </div>
+
+</body>
+</html>
