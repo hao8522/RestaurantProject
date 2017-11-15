@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta charset="utf-8" />
+    <title> Admin</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Areas/RestaurantAdmin/Css/ManageLayout.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+                  
+                    <li>@Html.ActionLink("Home", "AdminMain", "SysAdmin")</li>
+            
+                    <li>@Html.ActionLink("AddDishes", "DishesPublish", "Dishes")</li>
+                    <li>@Html.ActionLink("Modify Dishes","DishesManager","Dishes")</li>
+                
+                    <li>@Html.ActionLink("Add News","NewsPublish","News")</li>
+
+                    <li>@Html.ActionLink("Modify News","NewsManager","News")</li>
+                
+                    <li>@Html.ActionLink("Reservation","BookManager","Company")</li>
+                  
+                    <li>@Html.ActionLink("Feedback","SuggestionManager","Company")</li>
+                  
+                    <li>@Html.ActionLink("Add Position","RecruitmtntPublish","Company")</li>
+                
+                    <li>@Html.ActionLink("Modify Position","RecruitmentManager","Company")</li>
+                
+                    <li>@Html.ActionLink("Logout","ExitSys","SysAdmin")</li>
+
+                    @*<li><a href="/RestaurantAdmin/Dishes/DishesPublish">Add Dishes</a></li>
+                    <li><a href="/RestaurantAdmin/Dishes/DishesManager">Modify Dishes</a></li>
+                    <li><a href="/RestaurantAdmin/News/NewsPublish">Add News</a></li>
+                    <li><a href="/RestaurantAdmin/News/NewsManager">Modify News</a></li>
+                    <li><a href="/RestaurantAdmin/Company/BookManager">Reservation</a></li>
+                    <li><a href="/RestaurantAdmin/Company/SuggestionManager">Feedback</a></li>
+                    <li><a href="/RestaurantAdmin/Company/RecruitmentPublish">Add Position</a></li>
+                    <li><a href="/RestaurantAdmin/Company/RecruitmentManager">Modify Position</a></li>
+                    <li><a class="navLast" href="/RestaurantAdmin/SysAdmin/ExitSys">Logout</a></li>*@
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+
+            @RenderBody()
+        </div>
+        <div id="footer">
+            <div id="bq">
+                <a target="_blank" href="/Company/Index">[Home]</a>&nbsp;&nbsp; Copyright(C)2010-2020
+                &nbsp;&nbsp;&nbsp;[User:@Session["currentAdmin"]]
+            </div>
+        </div>
+    </div>
+</body>
+</html>

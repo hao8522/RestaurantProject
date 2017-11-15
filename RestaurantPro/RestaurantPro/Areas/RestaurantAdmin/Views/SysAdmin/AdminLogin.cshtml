@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="gb2312">
+    <title>Admin Login</title>
+    <link href="~/Areas/RestaurantAdmin/Css/ManageLayout.css" rel="stylesheet" />
+</head>
+<body>
+
+    @using (Html.BeginForm("AdminLogin","SysAdmin",FormMethod.Post,new { @class= "adminlogin__form" }))
+    {
+        <div id="container">
+            <div id="top">
+            </div>
+            <div id="content">
+                <div id="loginimg">
+                    <img src="~/Areas/RestaurantAdmin/Css/Images/loginimg.jpg" />
+                </div>
+                <div id="logindiv">
+                    <div id="ltitle">
+                        Administrator Login
+                    </div>
+                    <div class="litem">
+                        Username：
+                        
+                        @Html.TextBox("LoginId","",new { @class="txt"})
+                    </div>
+                    <div class="litem">
+                        Password：
+                        
+                        @Html.TextBox("LoginPwd","",new { @class="txt"})
+                    </div>
+                    <div class="litem">
+                        <button class="btncss" id="btnlogin" type="submit">Login</button>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div id="bq">
+                    Copyright(C)2010-2020
+                </div>
+            </div>
+        </div>
+        }
+</body>
+</html>

@@ -94,6 +94,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\RestaurantAdmin\Css\Images\default.png" />
+    <Content Include="Areas\RestaurantAdmin\Css\Images\loginimg.jpg" />
+    <Content Include="Areas\RestaurantAdmin\Css\Images\navbg_ht.jpg" />
+    <Content Include="Areas\RestaurantAdmin\Css\Images\topbg_ht.png" />
+    <Content Include="Areas\RestaurantAdmin\Css\ManageLayout.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\bg.jpg" />
     <Content Include="Images\dishes\100.PNG" />
@@ -154,6 +159,9 @@
     <Content Include="Images\zhaopai3.jpg" />
     <Content Include="Images\zhaopai4.jpg" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Areas\RestaurantAdmin\Views\Shared\ManageLayout.cshtml" />
+    <Content Include="Areas\RestaurantAdmin\Views\SysAdmin\AdminLogin.cshtml" />
+    <Content Include="Areas\RestaurantAdmin\Views\SysAdmin\AdminMain.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -376,6 +384,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\RestaurantAdmin\Controllers\SysAdminController.cs" />
     <Compile Include="Areas\RestaurantAdmin\RestaurantAdminAreaRegistration.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Global.asax.cs">
@@ -410,9 +419,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\RestaurantAdmin\Controllers\" />
     <Folder Include="Areas\RestaurantAdmin\Models\" />
-    <Folder Include="Areas\RestaurantAdmin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

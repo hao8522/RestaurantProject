@@ -63,6 +63,7 @@
       <DependentUpon>RestaurantEFEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Service\NewsService.cs" />
+    <Compile Include="Service\SysAdminService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
