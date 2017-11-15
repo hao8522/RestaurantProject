@@ -39,6 +39,12 @@ namespace RestaurantPro.Areas.RestaurantAdmin.Controllers
             }
         }
 
+        public ActionResult NewsList()
+        {
+            List<News> newsList = new NewsManager().GetNews(5);
+            ViewBag.newsList = newsList;
 
+            return View();
+        }
     }
 }

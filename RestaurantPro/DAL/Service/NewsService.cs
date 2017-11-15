@@ -37,7 +37,38 @@ namespace DAL
         {
             using (RestaurantDBEntities db= new RestaurantDBEntities())
             {
-                return (from n in db.News orderby n.PublishTime descending select n).Take(count).ToList();
+                //return (from n in db.News orderby n.PublishTime descending select n).Take(count).ToList();
+
+                var newsList = (from n in db.News
+                                orderby n.PublishTime descending
+                                select new
+                                {
+                                    n.NewsId,
+                                    n.NewsTitle,
+                                    n.PublishTime,
+                                    n.NewsContents,
+                                    n.CategoryId,
+                                    n.NewsCategory.CategoryName
+                                }).Take(count);
+
+                // covert to object
+                List<News> list = new List<News>();
+                foreach (var item in newsList)
+                {
+                    list.Add(new News()
+                    {
+                        NewsId= item.NewsId,
+                        NewsTitle= item.NewsTitle,
+                        NewsContents= item.NewsContents,
+                        PublishTime= item.PublishTime,
+                        CategoryId= item.CategoryId,
+                        NewsCategory= new NewsCategory { CategoryName= item.CategoryName}
+
+                    });
+                }
+
+                return list;
+
             }
         }
 

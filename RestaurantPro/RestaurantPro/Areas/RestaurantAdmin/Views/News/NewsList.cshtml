@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "News List";
+    Layout = "~/Areas/RestaurantAdmin/Views/Shared/ManageLayout.cshtml";
+}
+
+<div class="itemdiv">
+
+    <div class="newsitem-title-1">
+        Date
+    </div>
+    <div class="newsitem-title-2">
+        Title
+    </div>
+    <div class="newsitem-title-2">
+        Category
+    </div>
+    <div class="newsitem-title-3" style="width: 110px;">
+        Operation
+    </div>
+ 
+@foreach (Models.News item in ViewBag.newsList)
+{
+    <div class="newsitem-title-1">
+       @Models.UtilityHelper.ToShortDate(item.PublishTime)
+    </div>
+    <div class="newsitem-title-2">
+    <a href='/News/NewsDetail?newsId=@item.NewsId' target="_blank">
+        @item.NewsTitle
+    </a>
+   </div>
+
+    <div class="newsitem-title-2">
+
+        @item.NewsCategory.CategoryName
+    </div>
+    <div class="newsitem-title-3" style="width: 110px;">
+                   
+        @Html.ActionLink("Modify", "ShowNewsDetail", new { newsId=item.NewsId})
+
+
+        @Html.ActionLink("Delete", "DeleteNews",new { newsId=item.NewsId},new { onclick="return confirm('Are you sure to delete?')"})
+    </div>
+
+
+}
+
+</div>
+

@@ -163,6 +163,7 @@
     <Content Include="Areas\RestaurantAdmin\Views\SysAdmin\AdminLogin.cshtml" />
     <Content Include="Areas\RestaurantAdmin\Views\SysAdmin\AdminMain.cshtml" />
     <Content Include="Areas\RestaurantAdmin\Views\News\AddNews.cshtml" />
+    <Content Include="Areas\RestaurantAdmin\Views\News\NewsList.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
