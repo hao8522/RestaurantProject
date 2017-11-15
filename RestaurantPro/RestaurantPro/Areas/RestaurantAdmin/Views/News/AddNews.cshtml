@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Add News";
+    Layout = "~/Areas/RestaurantAdmin/Views/Shared/ManageLayout.cshtml";
+}
+<script src="~/ThirdFile/ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm("AddNews", "News",FormMethod.Post))
+{
+
+
+
+    <div class="txtContentdiv">
+        <div class="txtItemdiv">
+            Title：@Html.TextBox("NewsTitle", "", new { @class = "txt" })
+           
+            &nbsp;&nbsp;
+            Category：
+    
+
+            @Html.DropDownList("CategoryId",(SelectList)ViewBag.dList)
+        </div>
+        <div class="txtItemdiv">
+            Content：
+        </div>
+        <div class="txtItemdiv">
+           
+            @Html.TextArea("NewsContents")
+            <script type="text/javascript">
+                CKEDITOR.replace("NewsContents")
+            </script>
+        </div>
+        <div class="txtItemdiv">
+            <button class="btncss" id="btnPublish" type="submit">Submit</button>
+        </div>
+    </div>
+    }
