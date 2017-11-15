@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "News Details";
+    Layout = "~/Views/Shared/RMain.cshtml";
+}
+
+@model Models.News
+
+<link href="~/Styles/News.css" rel="stylesheet" />
+
+<script type="text/javascript">
+                        function changeFontSize(fontSize) {
+
+                            var divContent = document.getElementById("contents");
+                            divContent.style.fontSize = fontSize;
+                        }
+</script>
+<div class="newstitle" id="am">
+    @Model.NewsTitle
+</div>
+<div class="newsdesc">
+    Date：@Model.PublishTime&nbsp;&nbsp; Font Size：[<a href="javascript:void(0)" onclick="changeFontSize('20px')">Big</a>][<a href="javascript:void(0)" onclick="changeFontSize('16px')">Medium</a>] [<a href="javascript:void(0)" onclick="changeFontSize('12px')">Small</a>]
+</div>
+<div class="newscontent" id="contents" style="font-size:14px;">
+    @Model.NewsContents
+</div>
+

@@ -32,7 +32,7 @@ namespace BLL
         }
 
         // modify news
-        public int Modify(News news)
+        public int ModifyNews(News news)
         {
             return newsService.ModifyNews(news);
         }
@@ -49,6 +49,12 @@ namespace BLL
         public int DeleteNews(int newsId)
         {
             return newsService.DeleteNews(newsId);
+        }
+
+        // get news by id
+        public News GetNewsById(int newsId)
+        {
+            return newsService.GetNewsById(newsId);
         }
 
     }
