@@ -165,6 +165,7 @@
     <Content Include="Areas\RestaurantAdmin\Views\News\AddNews.cshtml" />
     <Content Include="Areas\RestaurantAdmin\Views\News\NewsList.cshtml" />
     <Content Include="Areas\RestaurantAdmin\Views\News\ModifyNews.cshtml" />
+    <Content Include="Areas\RestaurantAdmin\Views\Company\AddPosition.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -387,6 +388,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\RestaurantAdmin\Controllers\CompanyController.cs" />
     <Compile Include="Areas\RestaurantAdmin\Controllers\NewsController.cs" />
     <Compile Include="Areas\RestaurantAdmin\Controllers\SysAdminController.cs" />
     <Compile Include="Areas\RestaurantAdmin\RestaurantAdminAreaRegistration.cs" />

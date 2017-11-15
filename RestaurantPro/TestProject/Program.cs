@@ -12,6 +12,8 @@ namespace TestProject
     {
 
         static NewsManager manager = new NewsManager();
+
+        static RecruitmentManager rManager = new RecruitmentManager();
         static void Main(string[] args)
         {
             //test database
@@ -39,6 +41,49 @@ namespace TestProject
             //    Console.WriteLine(item.NewsId+"\t"+item.NewsTitle+"\t"+item.NewsContents);
 
             //}
+
+
+            // add recruitment
+            //Recruitment r = new Recruitment() {
+
+            //    PostName="Store Manager",
+            //   // PostType= "Full Time",
+            //    PostPlace = "Beijing",
+            //    PostDesc = " for the beingjing branch store manager",
+            //    PostRequire = "work from 10am-10pm",
+            //    Experience = "3 years",
+            //    EduBackground = "bachelor",
+            //    RequireCount = 3,
+            //    PublishTime = DateTime.Now,
+            //    Manager = "AAA",
+            //    PhoneNumber = "0212526928",
+            //    Email = "aaa@gmail.com"
+
+
+            //};
+
+            //Console.WriteLine(rManager.AddPosition(r));
+
+            //modify recruitment
+            Recruitment r = new Recruitment()
+            {
+                PostId=101013,
+                PostName = "Store ManagerB",
+                 PostType= "Part",
+                PostPlace = "Tianjin",
+                PostDesc = " for the beingjing branch store manager",
+                PostRequire = "work from 10am-10pm",
+                Experience = "3 years",
+                EduBackground = "bachelor",
+                RequireCount = 3,
+                PublishTime = DateTime.Now,
+                Manager = "BBB",
+                PhoneNumber = "0212526928",
+                Email = "bbb@gmail.com"
+
+            };
+
+            Console.WriteLine(rManager.ModifyPosition(r));
 
             Console.ReadKey();
             

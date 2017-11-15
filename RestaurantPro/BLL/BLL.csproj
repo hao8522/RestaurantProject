@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="NewsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecruitmentManager.cs" />
     <Compile Include="SysAdminManager.cs" />
   </ItemGroup>
   <ItemGroup>
