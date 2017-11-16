@@ -1,0 +1,61 @@
+﻿@model List<Models.Suggestion>
+@{
+    ViewBag.Title = "Feedback List";
+    Layout = "~/Areas/RestaurantAdmin/Views/Shared/ManageLayout.cshtml";
+}
+
+<div class="itemdiv">
+  <div class="book-title">
+        Feedback Time
+    </div>
+    <div class="book-title">
+        Name
+    </div>
+    <div class="book-title">
+        Phone
+    </div>
+    <div class="book-title">
+        Email
+    </div>
+    <div class="book-title" style="width: 324px;">
+        Desciption
+    </div>
+    <div class="book-title" style="width: 100px;">
+        Operation
+    </div>
+
+    @if (Model.Count > 0)
+    {
+        foreach (Models.Suggestion item in Model)
+        {
+
+
+            <div class="book-title">
+                @item.SuggestionTime
+            </div>
+            <div class="book-title">
+                @item.CustomerName
+            </div>
+            <div class="book-title">
+                @item.PhoneNumber
+            </div>
+            <div class="book-title">
+                @item.Email
+            </div>
+            <div class="book-title" style="width: 324px;">
+                @item.ConsumeDesc
+            </div>
+            <div class="book-title" style="width: 100px;">
+                <a href='AcceptFeedback?suggestionId=@item.SuggestionId'>Accept</a>
+            </div>
+            <div class="bookdetail">
+                <div class="book-comment">
+               Suggestion:     @item.SuggestionDesc
+                </div>
+            </div>
+
+
+        }
+    }
+
+</div>
