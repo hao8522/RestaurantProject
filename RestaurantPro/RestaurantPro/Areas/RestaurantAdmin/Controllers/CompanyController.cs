@@ -96,5 +96,31 @@ namespace RestaurantPro.Areas.RestaurantAdmin.Controllers
                 return Content("<script>alert('Can you try again?');location.href='"+Url.Action("PositionList") +"'</script>");
             }
         }
+
+        #region feedback
+        public ActionResult LoadFeedback()
+        {
+            List<Suggestion> feddbackList = new FeedbackManager().GetSuggestion();
+
+            return View("FeedbackList",feddbackList);
+        }
+
+        public ActionResult AcceptFeedback(int suggestionId)
+        {
+            int result = new FeedbackManager().AcceptFeedback(suggestionId);
+
+            if (result > 0)
+            {
+                return Content("<script>alert('Accept Feedback');location.href='" + Url.Content("LoadFeedback") + "'</script>");
+            }
+            else
+            {
+
+                return Content("<script>alert('Decline Feedback');location.href='" + Url.Content("LoadFeedback") + "'</script>");
+            }
+        }
+
+
+        #endregion 
     }
 }

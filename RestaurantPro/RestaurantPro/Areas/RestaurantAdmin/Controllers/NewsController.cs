@@ -24,6 +24,7 @@ namespace RestaurantPro.Areas.RestaurantAdmin.Controllers
         [ValidateInput(false)]
         public ActionResult AddNews(News news)
         {
+            news.PublishTime = DateTime.Now;
             int result = new NewsManager().AddNews(news);
 
             if (result > 0)
