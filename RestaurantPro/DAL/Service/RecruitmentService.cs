@@ -53,5 +53,45 @@ namespace DAL
             //return helper.Modify<Recruitment>(recruitment);
         }
 
+        /// <summary>
+        /// get all position
+        /// </summary>
+        /// <returns></returns>
+        public List<Recruitment> GetAllPostion()
+        {
+            using (RestaurantDBEntities db = new RestaurantDBEntities())
+            {
+                return (from m in db.Recruitments select m).ToList();
+            }
+        }
+
+
+        /// <summary>
+        /// delete position
+        /// </summary>
+        /// <param name="postId"></param>
+        /// <returns></returns>
+        public int DeletePosition(int postId)
+        {
+            using(RestaurantDBEntities db= new RestaurantDBEntities())
+            {
+                Recruitment recruitment = new Recruitment() { PostId = postId };
+
+                db.Recruitments.Attach(recruitment);
+                db.Recruitments.Remove(recruitment);
+
+                return db.SaveChanges();
+            }
+        }
+
+        public Recruitment GetPositionById(int postId)
+        {
+
+            using(RestaurantDBEntities db = new RestaurantDBEntities())
+            {
+                return (from n in db.Recruitments where n.PostId == postId select n).FirstOrDefault();
+            };
+        }
+
     }
 }

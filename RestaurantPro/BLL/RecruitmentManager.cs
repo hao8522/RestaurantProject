@@ -22,7 +22,24 @@ namespace BLL
             return recruitmentService.ModifyPosition(recruitment);
         }
 
+        public List<Recruitment> GetAllPostion()
+        {
+            return recruitmentService.GetAllPostion();
+        }
 
+
+        public int DeletePosition(int postId)
+        {
+
+            return recruitmentService.DeletePosition(postId);
+        }
+
+
+        public Recruitment GetPositionById(int postId)
+        {
+
+            return recruitmentService.GetPositionById(postId);
+        }
 
     }
 }

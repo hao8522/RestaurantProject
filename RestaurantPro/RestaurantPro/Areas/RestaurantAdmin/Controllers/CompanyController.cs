@@ -40,5 +40,61 @@ namespace RestaurantPro.Areas.RestaurantAdmin.Controllers
 
            
         }
+
+
+
+        public ActionResult PositionList()
+        {
+
+            List<Recruitment> positionList = new RecruitmentManager().GetAllPostion();
+
+            ViewBag.list = positionList;
+
+            return View("PositionList");
+
+        }
+
+        public ActionResult LoadModifyPosition(int postId)
+        {
+            Recruitment recruitment = new RecruitmentManager().GetPositionById(postId);
+            return View("ModifyPosition",recruitment);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ModifyPosition(Recruitment recruitment)
+        {
+
+            recruitment.PublishTime = DateTime.Now;
+
+            int result = new RecruitmentManager().ModifyPosition(recruitment);
+
+            if (result > 0)
+            {
+                return Content("<script>alert('Modify position successfully');location.href='" + Url.Content("PositionList") + "'</script>");
+            }
+            else
+            {
+
+                return Content("<script>alert('Can you try again?');location.href='" + Url.Content("PositionList") + "'</script>");
+            }
+        }
+
+
+        public ActionResult DeletePosition(int postId)
+        {
+            int result = new RecruitmentManager().DeletePosition(postId);
+
+            if (result > 0)
+            {
+
+                return Content("<script>alert('Delete position succssfully');location.href='"+Url.Action("PositionList") +"'</script>");
+            }
+            else
+            {
+
+                return Content("<script>alert('Can you try again?');location.href='"+Url.Action("PositionList") +"'</script>");
+            }
+        }
     }
 }

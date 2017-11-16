@@ -1,0 +1,96 @@
+﻿@model Models.Recruitment
+@{
+    ViewBag.Title = "Modify Position";
+    Layout = "~/Areas/RestaurantAdmin/Views/Shared/ManageLayout.cshtml";
+}
+
+
+
+<style type="text/css">
+    .txt {
+        width: 80px;
+    }
+</style>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var postType1 = $("#postT").val();
+        $("#PostType").val(postType1);
+        var Exp1 = $("#Exp").val();
+        $("#Experience").val(Exp1);
+        var Edu1 = $("#Edu").val();
+        $("#EduBackground").val(Edu1);
+    });
+</script>
+@using (Html.BeginForm("ModifyPosition", "Company",FormMethod.Post))
+{
+    <div class="txtContentdiv">
+        <div class="txtItemdiv">
+            @Html.Hidden("PostId",@Model.PostId)
+            @Html.Hidden("PostT",@Model.PostType, new { id = "PostT" })
+            @Html.Hidden("Exp", @Model.Experience, new { id = "Exp" })
+            @Html.Hidden("Edu", @Model.EduBackground, new { id = "Edu" })
+
+
+            Position：
+            
+            @Html.TextBox("PostName",@Model.PostName,new { @class="txt"})
+
+         
+       
+            Job Type：
+            <select id="PostType" name="PostType">
+                <option>Full</option>
+                <option>Part</option>
+            </select>
+            Work Experience：
+            <select id="Experience" name="Experience">
+                <option>1 Year</option>
+                <option>2 Year</option>
+                <option>3 Year</option>
+                <option>4 Year</option>
+                <option>5 Year</option>
+            </select>
+            Education：
+            <select id="EduBackground" name="EduBackground">
+                <option>Bachelor</option>
+                <option>Master</option>
+                <option>Diploma</option>
+                <option>College</option>
+            </select>
+            Persons：
+         
+            @Html.TextBox("RequireCount",@Model.RequireCount,new { @class="txt"})
+            Place：
+           
+            @Html.TextBox("PostPlace", @Model.PostPlace, new {@class="txt" })
+        </div>
+        <div class="txtItemdiv">
+            Description：
+        </div>
+        <div class="txtItemdiv">
+          
+            @Html.TextArea("PostRequire",@Model.PostRequire,new { cols="100",rows="10"})
+        </div>
+        <div class="txtItemdiv">
+            Requriement：
+        </div>
+        <div class="txtItemdiv">
+        
+            @Html.TextArea("PostDesc",Model.PostDesc,new { cols="100", rows="10"})
+
+        </div>
+        <div class="txtItemdiv">
+            Name：
+           
+            @Html.TextBox("Manager",@Model.Manager)
+           
+            @Html.TextBox("PhoneNumber",@Model.PhoneNumber)
+           
+            @Html.TextBox("Email",@Model.Email)
+        </div>
+        <div class="txtItemdiv">
+            <button class="btncss" id="btnModify" type="submit">Modify</button>
+        </div>
+    </div>
+    }

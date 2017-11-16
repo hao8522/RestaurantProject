@@ -65,25 +65,33 @@ namespace TestProject
             //Console.WriteLine(rManager.AddPosition(r));
 
             //modify recruitment
-            Recruitment r = new Recruitment()
-            {
-                PostId=101013,
-                PostName = "Store ManagerB",
-                 PostType= "Part",
-                PostPlace = "Tianjin",
-                PostDesc = " for the beingjing branch store manager",
-                PostRequire = "work from 10am-10pm",
-                Experience = "3 years",
-                EduBackground = "bachelor",
-                RequireCount = 3,
-                PublishTime = DateTime.Now,
-                Manager = "BBB",
-                PhoneNumber = "0212526928",
-                Email = "bbb@gmail.com"
+            //Recruitment r = new Recruitment()
+            //{
+            //    PostId=101013,
+            //    PostName = "Store ManagerB",
+            //     PostType= "Part",
+            //    PostPlace = "Tianjin",
+            //    PostDesc = " for the beingjing branch store manager",
+            //    PostRequire = "work from 10am-10pm",
+            //    Experience = "3 years",
+            //    EduBackground = "bachelor",
+            //    RequireCount = 3,
+            //    PublishTime = DateTime.Now,
+            //    Manager = "BBB",
+            //    PhoneNumber = "0212526928",
+            //    Email = "bbb@gmail.com"
 
-            };
+            //};
 
-            Console.WriteLine(rManager.ModifyPosition(r));
+            //Console.WriteLine(rManager.ModifyPosition(r));
+
+
+            // delete position
+
+            //Console.WriteLine(rManager.DeletePosition(101009));
+
+            // get position by Id 
+            Console.WriteLine(rManager.GetPositionById(101013).PostName);
 
             Console.ReadKey();
             

@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Positions List";
+    Layout = "~/Areas/RestaurantAdmin/Views/Shared/ManageLayout.cshtml";
+}
+
+
+
+<div class="itemdiv">
+    <div class="bitem-title">
+        Position
+    </div>
+    <div class="bitem-title">
+        Job Type
+    </div>
+    <div class="bitem-title">
+        Experience
+    </div>
+    <div class="bitem-title">
+        Education
+    </div>
+    <div class="bitem-title">
+        Person(s)
+    </div>
+    <div class="bitem-title">
+        Place
+    </div>
+    <div class="bitem-title" style="width: 120px;">
+        Operation
+    </div>
+    @if(ViewBag.list != null)
+    {
+        foreach (Models.Recruitment item in ViewBag.list)
+        {
+
+    <div class="bitem">
+       @item.PostName
+    </div>
+    <div class="bitem">
+       @item.PostType
+    </div>
+    <div class="bitem">
+        @item.Experience
+    </div>
+    <div class="bitem">
+        @item.EduBackground
+    </div>
+    <div class="bitem">
+        @item.RequireCount
+    </div>
+    <div class="bitem">
+        @item.PostPlace
+    </div>
+    <div class="bitem" style="width: 120px;">
+       
+        @Html.ActionLink("Modify", "LoadModifyPosition", new { postId=item.PostId})
+        &nbsp;&nbsp;
+  
+        @Html.ActionLink("Delete", "DeletePosition",new { postId=item.PostId }, new { onclick = "return confirm('are you sure to delete?')" })
+                                                                             
+    </div>
+        }
+    }
+</div>
