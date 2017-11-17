@@ -1,0 +1,65 @@
+﻿@model SelectList 
+@{
+    ViewBag.Title = "DishesList";
+    Layout = "~/Areas/RestaurantAdmin/Views/Shared/ManageLayout.cshtml";
+}
+
+
+
+<link href="~/Styles/Dishes.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $(".delDishes").click(function () {
+            if (!confirm("Are your sure to delete?")) return;
+            var dishesId = $(this).attr("name");
+            $.post("/WebHotelManage/Dishes/DeleteDishes", { "dishesId": dishesId }, function (data, status) {
+                if (data == "success") {
+                    $("#" + dishesId).remove();
+                    location.href = "DishesManager";
+                }
+                else {
+                    alert("Fail to delete Pictures");
+                }
+            });
+        });
+    });
+</script>
+@using (Html.BeginForm("Dishes", "QueryDishes", FormMethod.Post))
+{
+    <div id="dishcategory">
+        Category：
+        @Html.DropDownList("CategoryId",(SelectList)Model)
+        &nbsp;<button type="submit">Search</button>
+    </div>
+
+    
+}
+
+<div id="dishlistdiv">
+    @foreach (Models.Dish item in ViewBag.list)
+    {
+    <div class="dishlist-item" id="@item.DishesId">
+        <div class="dishlist-img">
+            <img src="~/Images/dishes/" alt="" />
+        </div>
+        <div class="dishlist-txt">
+            Name：@item.DishesName
+        </div>
+        <div class="dishlist-txt">
+
+            Category：@item.DishesCategory.CategoryName
+        </div>
+        <div class="dishlist-txt">
+            Price：@item.UnitPrice
+        </div>
+        <div class="dishlist-txt">
+            <a class="" href="/WebHotelManage/Dishes/DishesPublish?dishesId=100&amp;categoryId=1">Modify</a>
+            @Html.ActionLink("Modify", "DishesModify", new { dishesId = item.DishesId }, new { @class=""})
+            <a href="javascript:void()" name="100" class="delDishes">Delete</a>&nbsp;&nbsp;
+        </div>
+    </div>
+    }
+</div>
+
