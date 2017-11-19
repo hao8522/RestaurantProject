@@ -11,6 +11,7 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class Dish
     {
@@ -20,5 +21,12 @@ namespace Models
         public Nullable<int> CategoryId { get; set; }
     
         public virtual DishesCategory DishesCategory { get; set; }
+        
+        // not mapping property
+        [NotMapped]
+        public string DishesImg
+        {
+            get { return this.DishesId.ToString() + ".png"; }
+        }
     }
 }
