@@ -23,6 +23,9 @@ namespace RestaurantPro.Areas.RestaurantAdmin.Controllers
             return View("DishesList",sList);
         }
 
+
+
+
         #region Query Dishes
         public ActionResult QueryDishes(int categoryId)
         {
@@ -133,6 +136,62 @@ namespace RestaurantPro.Areas.RestaurantAdmin.Controllers
 
         #endregion
 
-    
+        #region Add Dishes
+        public ActionResult LoadAddDishes()
+        {
+            List<DishesCategory> categoryList = new DishesManager().GetAllDishesCategory();
+            SelectList sList = new SelectList(categoryList,"CategoryId","CategoryName", categoryList[0].CategoryId);
+
+            return View("AddDishes",sList);
+        }
+
+        public ActionResult AddDishes(Dish dish, HttpPostedFileBase dishesImg)
+        {
+
+
+            try
+            {
+                if (dishesImg != null && dishesImg.FileName != "")
+                {
+                    double fileLength = dishesImg.ContentLength / (1024 * 1024);
+
+                    if (fileLength > 2.0)
+                    {
+                        return Content("<script>alert('The max size is 2M');location.href='" + Url.Action("AddDishes") + "'</script>");
+                    }
+
+
+                }
+                else
+                {
+
+                    return Content("<script>alert('Please upload photo');location.href='" + Url.Action("AddDishes") + "'</script>");
+                }
+
+
+                int result = new DishesManager().AddDishes(dish);
+
+                if (result > 0)
+                {
+
+                    string filePath = Server.MapPath("~/Images/dishes/" + result + ".png");
+
+                    dishesImg.SaveAs(filePath);
+
+                }
+
+                return Content("<script>alert('Add Dish Successfully');location.href='" + Url.Content("DishesList") + "'</script>");
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return Content("<script>alert('error: '"+ex.Message+"'')</script>");
+            }
+            
+        }
+
+        #endregion
     }
 }

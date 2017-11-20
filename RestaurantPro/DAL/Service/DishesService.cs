@@ -13,6 +13,21 @@ namespace DAL
     public class DishesService
     {
         /// <summary>
+        /// add dishes
+        /// </summary>
+        /// <param name="dish"></param>
+        /// <returns></returns>
+        public int AddDishes(Dish dish)
+        {
+            using (RestaurantDBEntities db = new RestaurantDBEntities())
+            {
+                db.Dishes.Add(dish);
+                db.SaveChanges();
+                return dish.DishesId;
+                
+            };
+        }
+        /// <summary>
         /// delete dishes
         /// </summary>
         /// <param name="dishId"></param>

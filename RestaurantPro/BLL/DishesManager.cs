@@ -13,6 +13,11 @@ namespace BLL
        private DishesService dishesService = new DishesService();
 
 
+       public int AddDishes(Dish dish)
+       {
+           return dishesService.AddDishes(dish);
+       }
+
        public int DeleteDishes(int dishId)
        {
            return dishesService.DeleteDishes(dishId);
