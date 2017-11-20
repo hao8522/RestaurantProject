@@ -122,5 +122,40 @@ namespace RestaurantPro.Areas.RestaurantAdmin.Controllers
 
 
         #endregion 
+
+
+        #region Reservation
+
+        public ActionResult Reservation()
+        {
+            List<DishesBook> listReservation = new ReservationManager().GetAllReservatoin();
+
+            ViewBag.list = listReservation;
+
+            return View();
+        }
+
+
+        public ActionResult ModifyReservation(int bookId, int statId)
+        {
+            int result = new ReservationManager().ModifyReservation(bookId,statId);
+
+            if (result > 0)
+            {
+
+                return Content("<script>alert('The reservation is modified');location.href='" + Url.Content("Reservation") + "'</script>");
+
+            }
+            else
+            {
+
+                return Content("<script>alert('Can you try again?');location.href='" + Url.Content("Reservation") + "'</script>");
+            }
+        }
+
+
+      
+
+        #endregion 
     }
 }

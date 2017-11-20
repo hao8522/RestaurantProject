@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Reservation";
+    Layout = "~/Areas/RestaurantAdmin/Views/Shared/ManageLayout.cshtml";
+}
+
+<div class="itemdiv">
+    <div class="book-title">
+        Branch Name
+    </div>
+    <div class="book-title">
+        Time
+    </div>
+    <div class="book-title">
+        Person(s)
+    </div>
+    <div class="book-title">
+        Room Type
+    </div>
+    <div class="book-title">
+        Name
+    </div>
+    <div class="book-title">
+        Phone
+    </div>
+    <div class="book-title" style="width: 152px;">
+        Operation
+    </div>
+    @if(ViewBag.list !=null && ((List<Models.DishesBook>)(ViewBag.list)).Count>0){
+
+        foreach (Models.DishesBook item in ViewBag.list)
+        {
+            
+     
+    <div class="book-title">
+        @item.HotelName
+    </div>
+    <div class="book-title">
+       @item.ConsumeTime
+    </div>
+    <div class="book-title">
+        @item.ConsumePersons Person(s)
+    </div>
+    <div class="book-title">
+        @item.RoomType
+    </div>
+    <div class="book-title">
+       @item.CustomerName
+    </div>
+    <div class="book-title">
+      @item.CustomerPhone
+    </div>
+    <div class="book-title" style="width: 152px;">
+        <a href='ModifyReservation?statId=1&BookId=@item.BookId'>Approved</a>|
+        <a href='ModifyReservation?statId=-1&BookId=@item.BookId'>Cancel</a>|
+        <a href='ModifyReservation?statId=2&BookId=@item.BookId' onclick='if(confirm("Are you sure to delete?")==false) return false;'>Delete</a>
+    </div>
+    <div class="bookdetail">
+        <div class="book-Time">
+            Reservation Time： @Models.UtilityHelper.ToShortDate(item.BookTime)
+        </div>
+        <div class="book-Time">
+            Email：@item.CustomerEmail
+        </div>
+        <div class="book-Time">
+            Status：@item.OrderStatus（0：Pending&nbsp;1：Approved）
+        </div>
+        <div class="book-comment">
+            Requirement：@item.Comments
+        </div>
+    </div>
+        
+        }
+    }
+</div>
+
