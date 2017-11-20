@@ -4,11 +4,62 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models;
+using System.Data.Entity;
 
 namespace DAL
 {
+
+   
     public class DishesService
     {
+        /// <summary>
+        /// delete dishes
+        /// </summary>
+        /// <param name="dishId"></param>
+        /// <returns></returns>
+
+        public int DeleteDishes(int dishId)
+        {
+            using (RestaurantDBEntities db = new RestaurantDBEntities())
+            {
+                Dish dish = new Dish()
+                {
+
+                    DishesId = dishId
+                };
+
+                db.Dishes.Attach(dish);
+                db.Dishes.Remove(dish);
+                return db.SaveChanges();
+            }
+        }
+        /// <summary>
+        /// get dishes by id
+        /// </summary>
+        /// <param name="dishesId"></param>
+        /// <returns></returns>
+        public Dish GetDishesById(int dishesId)
+        {
+            using (RestaurantDBEntities db = new RestaurantDBEntities())
+            {
+                return (from d in db.Dishes where d.DishesId == dishesId select d ).FirstOrDefault();
+            }
+        }
+
+        /// <summary>
+        /// modify dishes
+        /// </summary>
+        /// <param name="dishes"></param>
+        /// <returns></returns>
+        public int ModifyDishes(Dish dishes)
+        {
+            using(RestaurantDBEntities db = new RestaurantDBEntities()){
+
+                db.Entry<Dish>(dishes).State = EntityState.Modified;
+                return db.SaveChanges();
+            }
+        }
+
         /// <summary>
         /// Get all dishes
         /// </summary>

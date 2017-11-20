@@ -14,10 +14,10 @@
         $(".delDishes").click(function () {
             if (!confirm("Are your sure to delete?")) return;
             var dishesId = $(this).attr("name");
-            $.post("/WebHotelManage/Dishes/DeleteDishes", { "dishesId": dishesId }, function (data, status) {
+            $.post("/RestaurantAdmin/Dishes/DeleteDishes", { "dishesId": dishesId }, function (data, status) {
                 if (data == "success") {
                     $("#" + dishesId).remove();
-                    location.href = "DishesManager";
+                    location.href = "DishesList";
                 }
                 else {
                     alert("Fail to delete Pictures");
@@ -26,7 +26,7 @@
         });
     });
 </script>
-@using (Html.BeginForm("Dishes", "QueryDishes", FormMethod.Post))
+@using (Html.BeginForm("QueryDishes", "Dishes", FormMethod.Post))
 {
     <div id="dishcategory">
         Category：
@@ -42,7 +42,7 @@
     {
     <div class="dishlist-item" id="@item.DishesId">
         <div class="dishlist-img">
-            <img src="~/Images/dishes/" alt="" />
+            <img src="~/Images/dishes/@item.DishesImg" alt="" />
         </div>
         <div class="dishlist-txt">
             Name：@item.DishesName
@@ -55,9 +55,9 @@
             Price：@item.UnitPrice
         </div>
         <div class="dishlist-txt">
-            <a class="" href="/WebHotelManage/Dishes/DishesPublish?dishesId=100&amp;categoryId=1">Modify</a>
-            @Html.ActionLink("Modify", "DishesModify", new { dishesId = item.DishesId }, new { @class=""})
-            <a href="javascript:void()" name="100" class="delDishes">Delete</a>&nbsp;&nbsp;
+            
+            @Html.ActionLink("Modify", "LoadModifyDishes", new { dishesId = item.DishesId }, new { @class=""})
+            <a href="javascript:void()" name="@item.DishesId" class="delDishes">Delete</a>&nbsp;&nbsp;
         </div>
     </div>
     }
