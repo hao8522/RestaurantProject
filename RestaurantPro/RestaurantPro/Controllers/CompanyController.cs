@@ -25,5 +25,23 @@ namespace RestaurantPro.Controllers
         {
             return View();
         }
+
+
+        public ActionResult PositionList()
+        {
+
+            List<Recruitment> positionList = new RecruitmentManager().GetAllPostion();
+
+            ViewBag.list = positionList;
+
+            return View("PositionList");
+        }
+
+        public ActionResult PostionDetails(int positionId)
+        {
+
+            Recruitment r = new RecruitmentManager().GetPositionById(positionId);
+            return View("PositionDetails",r);
+        }
     }
 }

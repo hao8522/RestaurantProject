@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Position List";
+    Layout = "~/Views/Shared/RMain.cshtml";
+}
+<link href="~/Styles/MainPage.css" rel="stylesheet" />
+<link href="~/Styles/MasterPage.css" rel="stylesheet" />
+<link href="~/Styles/Recruitment.css" rel="stylesheet" />
+@section lefttitle{
+
+    <div class="lefttitle">
+        Navigation
+    </div>
+
+}
+
+@section content1{
+
+    <div class="content1">
+        <div class="conitem">
+            <a href="#">Company</a>
+        </div>
+        <div class="conitem">
+            <a href="#">Company Culture</a>
+        </div>
+
+        <div class="conitem">
+            <a href="#">History</a>
+        </div>
+    </div>
+
+}
+
+
+@section lefttitle1{
+    <div class="lefttitle">
+        Contact Us
+    </div>
+
+}
+
+
+@section content2
+{
+    <div class="content2">
+        <div style="padding-left: 33px; padding-right: 0px; font: 12px/18px simsun; color: #3f3b32;">
+            Address：Wellington CBD<br />
+
+            Phone：04-66666666<br />
+            <br />
+            Fax：04-66666666<br />
+            Email：boss@gmail.com
+        </div>
+    </div>
+
+}
+
+
+@section righttitle {
+
+    <div class="righttitle">
+        Location: Restaurant > Recruitment
+    </div>
+
+}
+
+<link href="~/Styles/Recruitment.css" rel="stylesheet" />
+
+    <div class="outdiv">
+        <div class="titlediv">
+            <div class="position">
+                Position
+            </div>
+            <div class="place">
+                Place:
+            </div>
+            <div class="needcount">
+                Person(s)
+            </div>
+            <div class="detail">
+                Details
+            </div>
+        </div>
+
+       @if(ViewBag.list !=null){
+        
+         foreach(Models.Recruitment  item in ViewBag.list){
+      
+        
+  
+        <div class="itemdiv">
+            <div class="position">
+                <a href="/Company/PostionDetails?positionId=@item.PostId" target="_blank">@item.PostName</a>
+            </div>
+            <div class="place">
+                @item.PostPlace
+            </div>
+            <div class="needcount">
+                @item.RequireCount
+            </div>
+            <div class="detail">
+                <a href="/Company/PostionDetails?positionId=@item.PostId" target="_blank">Details</a>
+            </div>
+        </div>
+        }
+
+        }
+
+      
+    </div>
+
+
+
+
+
+

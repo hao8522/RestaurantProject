@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "Position Details";
+    Layout = "~/Views/Shared/RMain.cshtml";
+}
+<link href="~/Styles/MainPage.css" rel="stylesheet" />
+<link href="~/Styles/MasterPage.css" rel="stylesheet" />
+<link href="~/Styles/Recruitment.css" rel="stylesheet" />
+@model Models.Recruitment
+
+@section lefttitle{
+
+    <div class="lefttitle">
+        Navigation
+    </div>
+
+}
+
+@section content1{
+
+    <div class="content1">
+        <div class="conitem">
+            <a href="#">Company</a>
+        </div>
+        <div class="conitem">
+            <a href="#">Company Culture</a>
+        </div>
+
+        <div class="conitem">
+            <a href="#">History</a>
+        </div>
+    </div>
+
+}
+
+
+@section lefttitle1{
+    <div class="lefttitle">
+        Contact Us
+    </div>
+
+}
+
+
+@section content2
+{
+    <div class="content2">
+        <div style="padding-left: 33px; padding-right: 0px; font: 12px/18px simsun; color: #3f3b32;">
+            Address：Wellington CBD<br />
+
+            Phone：04-66666666<br />
+            <br />
+            Fax：04-66666666<br />
+            Email：boss@gmail.com
+        </div>
+    </div>
+
+}
+
+
+@section righttitle {
+
+    <div class="righttitle">
+        Location: Restaurant > Position Details
+    </div>
+
+}
+
+<link href="~/Styles/Recruitment.css" rel="stylesheet" />
+<div class="contentDiv">
+    <div class="item" style="margin-top: 20px;">
+        <div class="itemtitle">
+            Position：
+        </div>
+        <div class="itemcontent">
+           @Model.PostName
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemtitle">
+            Job Type：
+        </div>
+        <div class="itemcontent">
+        @Model.PostType
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemtitle">
+            Experience：
+        </div>
+        <div class="itemcontent">
+           @Model.Experience
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemtitle">
+            Background：
+        </div>
+        <div class="itemcontent">
+            @Model.EduBackground
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemtitle">
+            Person(3)：
+        </div>
+        <div class="itemcontent">
+           @Model.RequireCount
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemtitle">
+            Date：
+        </div>
+        <div class="itemcontent">
+            @Models.UtilityHelper.ToShortDate(Model.PublishTime)
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemtitle">
+            Description：
+        </div>
+        <div class="itemcontent">
+        </div>
+    </div>
+    <div class="positiondesc">
+        @Model.PostDesc
+    </div>
+    <div class="item">
+        <div class="itemtitle">
+            Requirement：
+        </div>
+        <div class="itemcontent">
+        </div>
+    </div>
+    <div class="positiondesc">
+      @Model.PostRequire
+    </div>
+    <div class="item">
+        <div class="itemtitle">
+            Contact：
+        </div>
+        <div class="itemcontent">
+            @Model.Manager
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemtitle">
+            Phone：
+        </div>
+        <div class="itemcontent">
+          @Model.PhoneNumber
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemtitle">
+            Email：
+        </div>
+        <div class="itemcontent">
+            @Model.Email
+        </div>
+    </div>
+</div>
+
