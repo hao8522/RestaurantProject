@@ -1,0 +1,72 @@
+﻿@model SelectList
+@{
+    ViewBag.Title = "Add Dish";
+    Layout = "~/Areas/RestaurantAdmin/Views/Shared/ManageLayout.cshtml";
+}
+
+<link href="~/Styles/Dishes.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/validation-min.js"></script>
+<script src="~/Scripts/uploadPreview.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#dishesImg").uploadPreview({ Img: "imghead", width: 302, Height: 227 })
+    });
+</script>
+
+@using(Html.BeginForm("AddDishes","Dishes",FormMethod.Post,new{enctype="multipart/form-data", id="mainForm", name="mainFomr"})){
+    
+
+
+    <div class="txtItemdiv">
+        <div class="itemtitle">
+            Name：
+        </div>
+        <div class="itemcontent">
+         
+            @Html.TextBox("DishesName", "", new { @class = "txt" })
+            <span style="color:red">*</span>
+        </div>
+    </div>
+    <div class="txtItemdiv">
+        <div class="itemtitle">
+            Pirce：
+        </div>
+        <div class="itemcontent">
+         
+            @Html.TextBox("UnitPrice", "", new { @class = "txt" })
+            <span style="color:red">*</span>
+        </div>
+    </div>
+    <div class="txtItemdiv">
+        <div class="itemtitle">
+            Category：
+        </div>
+        <div class="itemcontent">
+            @Html.DropDownList("CategoryId", (SelectList)Model)
+            <span style="color:red">*</span>
+        </div>
+    </div>
+    <div class="txtItemdiv">
+        <div class="itemtitle">
+            Dishes Picture：
+        </div>
+        <div class="itemcontent">
+            <img id="imghead" src="~/Areas/RestaurantAdmin/Css/Images/default.png" width="302" height="227" />  （less than 2M）
+        </div>
+    </div>
+    <div class="txtItemdiv">
+        <div class="itemtitle">
+            Upload：
+        </div>
+        <div class="itemcontent">
+            <input type="file" id="dishesImg" name="dishesImg" />
+        </div>
+    </div>
+    <div class="txtItemdiv">
+        <div class="itemtitle" style="margin-left:80px;">
+            <button class="btncss" type="submit" id="btnAdd" formaction="AddDishes">Add Dish</button>
+        </div>
+    </div>
+    }        
+

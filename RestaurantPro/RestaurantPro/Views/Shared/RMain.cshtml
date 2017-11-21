@@ -76,40 +76,18 @@
         <div id="content">
             <div id="leftpage">
 
-                <div class="lefttitle">
-                    Navigation
-                </div>
-                <div class="content1">
-                    <div class="conitem">
-                        <a href="#">Company</a>
-                    </div>
-                    <div class="conitem">
-                        <a href="#">Company Culture</a>
-                    </div>
-
-                    <div class="conitem">
-                        <a href="#">History</a>
-                    </div>
-                </div>
-                <div class="lefttitle">
-                    Contact Us
-                </div>
-                <div class="content2">
-                    <div style="padding-left: 33px; padding-right: 0px; font: 12px/18px simsun; color: #3f3b32;">
-                        Address：Wellington CBD<br />
-
-                        Phone：04-66666666<br />
-                        <br />
-                        Fax：04-66666666<br />
-                        Email：boss@gmail.com
-                    </div>
-                </div>
+                @RenderSection("lefttitle", required:false)
+               
+                @RenderSection("content1", required:false)
+               
+             @RenderSection("lefttitle1",required:false)
+            
+                @RenderSection("content2",required:false)
+         
             </div>
 
             <div id="rightpage">
-                <div class="righttitle">
-                    Location:AAA Hotel> Overview
-                </div>
+                @RenderSection("righttitle",required:false)
                 <div class="contentDiv">
                     <div style="width: 655px; float: left; margin: 30px 0px 0px 40px; display: inline;
         color: #3F3B32;">

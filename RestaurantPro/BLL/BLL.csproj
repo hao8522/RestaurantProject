@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DishesManager.cs" />
+    <Compile Include="FeedbackManager.cs" />
     <Compile Include="NewsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecruitmentManager.cs" />
+    <Compile Include="ReservationManager.cs" />
     <Compile Include="SysAdminManager.cs" />
   </ItemGroup>
   <ItemGroup>

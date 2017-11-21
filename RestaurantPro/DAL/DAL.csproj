@@ -62,8 +62,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantEFEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Service\DishesService.cs" />
+    <Compile Include="Service\FeedbackService.cs" />
     <Compile Include="Service\NewsService.cs" />
     <Compile Include="Service\RecruitmentService.cs" />
+    <Compile Include="Service\ReservationService.cs" />
     <Compile Include="Service\SysAdminService.cs" />
   </ItemGroup>
   <ItemGroup>

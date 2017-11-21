@@ -18,5 +18,14 @@ namespace RestaurantPro.Controllers
 
             return View("NewsDetails", news);
         }
+
+        public ActionResult NewsList()
+        {
+            List<News> newsList = new NewsManager().GetNews(5);
+
+            ViewBag.list = newsList;
+
+            return View();
+        }
     }
 }
