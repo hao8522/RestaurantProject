@@ -1,13 +1,13 @@
---插入测试数据
+
 use RestaurantDB
 go
---管理员信息
+
 insert into SysAdmins(LoginId,LoginPwd,LoginName)values(1001,'123456','Hao')
 insert into SysAdmins(LoginId,LoginPwd,LoginName)values(1002,'123456','Wang')
---新闻分类
+
 insert into NewsCategory(CategoryName)values('CompanyNews')
 insert into NewsCategory(CategoryName)values('news')
---菜品分类
+
 insert into DishesCategory(CategoryName)values('Sichuan Cuisine')
 insert into DishesCategory(CategoryName)values('Hunan Cuisine')
 insert into DishesCategory(CategoryName)values('Shandong Cuisine')
