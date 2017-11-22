@@ -12,9 +12,13 @@ namespace BLL
     {
        private ReservationService reservationService = new ReservationService();
 
+        public int AddReservation(DishesBook dishesbook)
+        {
+            return reservationService.AddReservation(dishesbook);
 
+        }
 
-       public int ModifyReservation(int bookId, int statId)
+            public int ModifyReservation(int bookId, int statId)
        {
 
            return reservationService.ModifyReservation(bookId, statId);

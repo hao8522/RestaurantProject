@@ -1,0 +1,279 @@
+﻿
+@{
+    ViewBag.Title = "Reservation";
+    Layout = "~/Views/Shared/RMain.cshtml";
+}
+<link href="~/Styles/Dishes.css" rel="stylesheet" type="text/css" />
+
+<script src="~/Scripts/jquery-1.4.1.min.js"></script>
+<script src="~/Scripts/validation-min.js"></script>
+<script src="~/ThirdFile/My97DatePicker/WdatePicker.js"></script>
+<style type="text/css">
+    .txtarea {
+        width: 200px;
+        height: 50px;
+    }
+</style>
+
+
+
+@section lefttitle{
+
+    <div class="lefttitle">
+        Dishes Category
+    </div>
+
+}
+
+@section content1{
+
+    <div class="content1">
+        <div class="conitem">
+            <a href="#">Signature Dish</a>
+        </div>
+        <div class="conitem">
+            <a href="#">Special Cuisine</a>
+        </div>
+        <div class="conitem">
+            <a href="#">Latest Dishes</a>
+        </div>
+    </div>
+
+}
+
+
+@section lefttitle1{
+    <div class="lefttitle">
+        Contact Us
+    </div>
+
+}
+
+
+
+
+
+@section righttitle {
+
+    <div class="righttitle">
+        Current Location:Restaurant > Reservation
+    </div>
+
+ }
+
+
+<div class="cdiv">
+    @using (Html.BeginForm("Reservation", "Company",FormMethod.Post, new {@id="mainForm" }))
+    {
+       <div class="item">
+            <div class="itemtitle">
+                Hotel Name：
+            </div>
+            <div class="itemcontent">
+                <select name="HotelName">
+                    <option value="Tianjin Branch">Tianjin Branch</option>
+                    <option value="Beijing Branch">Beijing Branch</option>
+                    <option value="Shanghai Branch">Shanghai Branch</option>
+                </select>
+                <span>&nbsp;*</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                Hours：
+            </div>
+            <div class="itemcontent">
+               
+                @Html.TextBox("ConsumeTime","",new { @class="txt", onclick= "WdatePicker()"})
+                <span>&nbsp;*</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                Person(s)：
+            </div>
+            <div class="itemcontent">
+             
+                @Html.TextBox("ConsumePersons", "",new { @class="txt"})
+                <span>&nbsp;*</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                Room Type：
+            </div>
+            <div class="itemcontent">
+                <select name="RoomType">
+                    <option value="Private Room">Private Room</option>
+                    <option value="Extra Seat">Extra Seat</option>
+                </select>
+                <span>&nbsp;*</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                Name：
+            </div>
+            <div class="itemcontent">
+                
+                @Html.TextBox("CustomerName", "",new { @class="txt"})
+                <span>&nbsp;*</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                Phone：
+            </div>
+            <div class="itemcontent">
+               
+                @Html.TextBox("CustomerPhone", "",new { @class="txt"})
+                <span>&nbsp;*</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                Email：
+            </div>
+            <div class="itemcontent">
+             
+                @Html.TextBox("CustomerEmail", "",new {@class="txt" })
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                Notes：
+            </div>
+            <div class="itemcontent">
+             
+                @Html.TextArea("Comments", "",new { @class="txtarea",cols="20",rows="2"})
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                Code：
+            </div>
+            <div class="itemcontent">
+                <input class="txt" id="txtValidateCode" name="txtValidateCode" type="text" value="" />
+                <span>&nbsp;*</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+            </div>
+            <div class="itemcontent">
+                <img alt="Code" id="vCodeimg" title="change"
+                     src="/Company/ValidateCode" onclick="this.src=this.src+'?'" />
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+            </div>
+            <div class="itemcontent">
+                <input type="button" class="btncss" id="submitMsg" value="Reservation" />
+            </div>
+        </div>
+        }
+</div>
+<div id="popdiv">
+    <div id="infodiv">
+        <div id="loadingdiv">
+            <img src="~/Styles/Images/onloading.gif" />
+        </div>
+        <div class="loadinfo">
+            loading ......
+        </div>
+    </div>
+    <div id="errordiv" style="display: none; color: #FCD24B; float: left;">
+        Time Out, please try again
+    </div>
+    <div id="regsuccess" style="float: left; display: none;">
+        Submit Succeed！&nbsp;<b>After<span id="seconds">3</span></b>&nbsp;secnds ......
+    </div>
+</div>
+<div id="zzc">
+</div>
+
+<script type="text/javascript">
+    //register
+    $("#mainForm").valid([
+        { name: "ConsumeTime", isNull: "consume time can not be null", onFocus: "please pick  time" },
+        { name: "ConsumePersons", type: "number", error: "The number of person should be intergen", isNull: "please fill in the number", onFocus: "please fill in the number" },
+        { name: "CustomerName", isNull: "the name could be null", onFocus: "please fill the name" },
+        { name: "CustomerPhone", type: "mobile", error: "the phone number is incorrect", isNull: "please fill in your phone number ", onFocus: "plese fill in your phone number" },
+        { name: "txtValidateCode", isNull: "Please fill in code", onFocus: "Please fill in code" },
+        { name: "txtValidateCode", type: "ajax", error: "the code is incorrect", other: { url: "/Company/CheckValidate" } }
+    ], true);
+    
+    $(function () {
+        $("#submitMsg").click(function () {
+            $("#mainForm").submit();
+        });
+    });
+    
+    function ajaxForm() {
+        $.ajax({
+            type: "POST", 
+            timeout: 30000, 
+            url: "/Company/Reservation", 
+            data: $("#mainForm").serialize(), 
+            beforeSend: function () {
+                $("#errordiv").text("time out please try again");
+                $("#errordiv").hide();
+                $("#zzc").show();
+                popupDiv("popdiv");
+            },
+            error: function () {
+                $("#infodiv").hide();
+                $("#errordiv").show();
+            },
+            success: function (data) {
+                if (data == "success") {
+                    $("#infodiv").hide();
+                    $("#regsuccess").show();
+                    setInterval(MyTimer, 1000)
+                } else {
+                    $("#infodiv").hide();
+                    $("#errordiv").text(data);
+                    $("#errordiv").show();
+                }
+            }
+        });
+    }
+
+    function popupDiv(div_id) {
+        var div_obj = $("#" + div_id);
+       
+        var winWidth = $(window).width();
+        var winHeight = $(window).height();
+       
+        var popHeight = div_obj.height();
+        var popWidth = div_obj.width();
+        div_obj.animate({
+            opacity: "show", left: (winWidth - popWidth) / 2,
+            top: (winHeight - popHeight) / 2 + 300, width: popWidth, height: popHeight
+        }, 300);
+        $("#infodiv").show();
+    }
+    $(function () {
+        $("#popdiv").click(function () {
+            $("#popdiv").animate({ opacity: "hide" }, 300);
+            $("#zzc").css("display", "none");
+        });
+    });
+    $(function () {
+        $("#errordiv").mouseover(function () {
+            $("#popdiv").animate({ opacity: "hide" }, 300);
+            $("#zzc").css("display", "none");
+        });
+    });
+   
+    var sec = 3;
+    function MyTimer() {
+        if (sec == 0) {
+            location = "/Company/Index";
+        } else {
+            sec = sec - 1;
+            $("#seconds").text(sec);
+        }
+    }
+</script>

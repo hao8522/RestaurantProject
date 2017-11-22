@@ -9,8 +9,19 @@ namespace DAL
 {
     public class ReservationService
     {
-
-       
+        /// <summary>
+        /// add reservation
+        /// </summary>
+        /// <param name="dishesbook"></param>
+        /// <returns></returns>
+       public int AddReservation(DishesBook dishesbook)
+        {
+            using (RestaurantDBEntities db= new RestaurantDBEntities())
+            {
+                db.DishesBooks.Add(dishesbook);
+                return db.SaveChanges();
+            }
+        }
         /// <summary>
         /// modify reservation
         /// </summary>

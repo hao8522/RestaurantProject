@@ -428,13 +428,14 @@
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Company\Overview.cshtml" />
     <Content Include="Views\News\NewsDetails.cshtml" />
-    <Content Include="Views\Dishes\AddDishes.cshtml" />
-    <Content Include="Views\Dishes\DishesList.cshtml" />
-    <Content Include="Views\Dishes\DishesModify.cshtml" />
     <Content Include="Views\News\NewsList.cshtml" />
     <Content Include="Views\Company\PositionList.cshtml" />
     <Content Include="Views\Company\PositionDetails.cshtml" />
     <Content Include="Views\Company\Feedback.cshtml" />
+    <Content Include="Views\Dishes\DishesDetails.cshtml" />
+    <Content Include="Views\Company\Reservation.cshtml" />
+    <Content Include="Views\Company\Sourranding.cshtml" />
+    <Content Include="Views\Company\AboutUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

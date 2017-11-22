@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Dishes Details";
+    Layout = "~/Views/Shared/RMain.cshtml";
+}
+<link href="~/Styles/MainPage.css" rel="stylesheet" />
+<link href="~/Styles/MasterPage.css" rel="stylesheet" />
+
+<link href="~/Styles/Dishes.css" rel="stylesheet" type="text/css" />
+
+@section lefttitle{
+
+    <div class="lefttitle">
+        Dishes Category
+    </div>
+
+}
+
+@section content1{
+
+    <div class="content1">
+        <div class="conitem">
+            <a href="#">Signature Dish</a>
+        </div>
+        <div class="conitem">
+            <a href="#">Special Cuisine</a>
+        </div>
+        <div class="conitem">
+            <a href="#">Latest Dishes</a>
+        </div>
+    </div>
+
+}
+
+
+@section lefttitle1{
+    <div class="lefttitle">
+        Dishes Search
+    </div>
+
+}
+
+
+@section content2
+{
+    <div class="content2">
+        <form action="#" method="post" name="myform">
+            <table style="border-collapse:collapse; border:0px; padding:35px; width:200px; position:relative;left:39px;top:30px; float:left;">
+                <tr>
+                    <td>
+                        <select style="width:155px;">
+                            <option value="value"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="txtSearch" style="width:150px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="name" value="Search" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+}
+
+
+@section righttitle {
+
+    <div class="righttitle">
+        Current Location:Restaurant > Dishes Details
+    </div>
+}
+
+
+<div id="dishitem">
+    @if(ViewBag.list != null)
+    {
+
+        foreach (Models.Dish item in ViewBag.list) {
+
+
+    <div class="ditem">
+        <div class="dimgdiv">
+            <img src="~/Images/dishes/@item.DishesImg" />
+        </div>
+        <div class="dishname">
+          @item.DishesName;@item.UnitPrice
+        </div>
+    </div>
+
+        }
+    }
+</div>

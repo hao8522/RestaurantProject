@@ -44,6 +44,42 @@ namespace RestaurantPro.Controllers
             return View("PositionDetails",r);
         }
 
+        #region Reservaton
+        public ActionResult LoadReservation()
+        {
+            return View("Reservation");
+        }
+
+        public ActionResult Reservation(DishesBook book)
+        {
+            book.BookTime = DateTime.Now;
+            book.OrderStatus = 0;
+            int result = new ReservationManager().AddReservation(book);
+            if (result > 0)
+            {
+                return Content("success");
+            }
+            else
+            {
+                return Content("error");
+            }
+        }
+
+        public ActionResult CheckValidate()
+        {
+            string txtValidateCode = Request["value"];
+            if (String.Compare(Session["ValidateCode"].ToString(), txtValidateCode, true) != 0)
+            {
+                return Content("0");  //0 incorrect
+            }
+            else
+            {
+                return Content("1"); //1 correct
+            }
+        }
+
+        #endregion
+
         #region Feedback
 
         public ActionResult ValidateCode()
@@ -103,5 +139,16 @@ namespace RestaurantPro.Controllers
         }
 
         #endregion
+
+
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+
+        public ActionResult Sourranding()
+        {
+            return View();
+        }
     }
 }
