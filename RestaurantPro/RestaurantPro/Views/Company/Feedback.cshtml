@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "Feed back";
+    Layout = "~/Views/Shared/RMain.cshtml";
+}
+<link href="~/Styles/MainPage.css" rel="stylesheet" />
+<link href="~/Styles/MasterPage.css" rel="stylesheet" />
+<link href="~/Styles/Dishes.css" rel="stylesheet" />
+@model Models.Suggestion
+@section lefttitle{
+
+    <div class="lefttitle">
+        Navigation
+    </div>
+
+}
+
+@section content1{
+
+    <div class="content1">
+        <div class="conitem">
+            <a href="#">Company</a>
+        </div>
+        <div class="conitem">
+            <a href="#">Company Culture</a>
+        </div>
+
+        <div class="conitem">
+            <a href="#">History</a>
+        </div>
+    </div>
+
+}
+
+
+@section lefttitle1{
+    <div class="lefttitle">
+        Contact Us
+    </div>
+
+}
+
+
+@section content2
+{
+    <div class="content2">
+        <div style="padding-left: 33px; padding-right: 0px; font: 12px/18px simsun; color: #3f3b32;">
+            Address：Wellington CBD<br />
+
+            Phone：04-66666666<br />
+            <br />
+            Fax：04-66666666<br />
+            Email：boss@gmail.com
+        </div>
+    </div>
+
+}
+
+
+@section righttitle {
+
+    <div class="righttitle">
+        Current Location:Restaurant > Feedback
+    </div>
+
+}
+@using (Html.BeginForm("AddFeedback", "Company",FormMethod.Post,new { id="mainForm"}))
+{
+    <div class="cdiv">
+        <div class="item">
+            <div class="itemtitle">
+                <span>*</span>Name：
+            </div>
+            <div class="itemcontent">
+            
+                @Html.TextBox("CustomerName","",new { @class="txt"})
+                @Html.ValidationMessage("CustomerName")
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                <span>*</span>Description：
+            </div>
+            <div class="itemcontent">
+               
+                @Html.TextBox("ConsumeDesc","",new { @class="txt"})
+                @Html.ValidationMessage("ConsumeDesc")
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                <span>*</span> Phone：
+            </div>
+            <div class="itemcontent">
+      
+                @Html.TextBoxFor(m=>m.PhoneNumber, new { @class="txt"})
+                @Html.ValidationMessage("PhoneNumber")
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="itemtitle">
+                <span>*</span>Email：
+            </div>
+            <div class="itemcontent">
+            
+                @Html.TextBoxFor(m=>m.Email,new { @class="txt"})
+                @Html.ValidationMessage("Email")
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                <span>*</span> Feedback：
+            </div>
+            <div class="itemcontent">
+            
+                @Html.TextArea("SuggestionDesc","",new { @class="txt",cols = "20", rows = "5" })
+                @Html.ValidationMessage("SuggestionDesc")
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+                <span>*</span>   Code：
+            </div>
+            <div class="itemcontent">
+                <input class="txt" id="vCode" name="vCode" type="text" value="" />
+            </div>
+            <div class="item">
+                <div class="itemtitle">
+                </div>
+                <div class="itemcontent">
+                    <img alt="code" id="ImgValidateCode" title="change"
+                         src="/Company/ValidateCode" onclick="this.src=this.src+'?'" />
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemtitle">
+            </div>
+            <div class="itemcontent">
+                <button id="btnSubmit" class="btncss">Submit</button>
+            </div>
+        </div>
+    </div>
+    }

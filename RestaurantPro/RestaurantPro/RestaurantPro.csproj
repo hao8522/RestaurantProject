@@ -401,10 +401,12 @@
     <Compile Include="Areas\RestaurantAdmin\Controllers\SysAdminController.cs" />
     <Compile Include="Areas\RestaurantAdmin\RestaurantAdminAreaRegistration.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\DishesController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CreateValidateCode.cs" />
     <Compile Include="Models\UtilityHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -432,6 +434,7 @@
     <Content Include="Views\News\NewsList.cshtml" />
     <Content Include="Views\Company\PositionList.cshtml" />
     <Content Include="Views\Company\PositionDetails.cshtml" />
+    <Content Include="Views\Company\Feedback.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

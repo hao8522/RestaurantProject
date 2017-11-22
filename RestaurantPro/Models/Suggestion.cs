@@ -11,15 +11,33 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Suggestion
     {
         public int SuggestionId { get; set; }
+        [DisplayName("Customer Name")]
+        [Required(ErrorMessage ="{0} could not be null")]
         public string CustomerName { get; set; }
+
+        [DisplayName("Consume Time")]
+        [Required(ErrorMessage ="{0} could not be null")]
         public string ConsumeDesc { get; set; }
+
+        [DisplayName("Description")]
+        [Required(ErrorMessage ="{0} could not be null")]
         public string SuggestionDesc { get; set; }
+
         public Nullable<System.DateTime> SuggestionTime { get; set; }
+
+        [DisplayName("Phone Number")]
+        [Required(ErrorMessage ="{0} could not be null")]
+        [RegularExpression(@"^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$", ErrorMessage = "Please fill in correct {0}")]
         public string PhoneNumber { get; set; }
+        [DisplayName("Email")]
+        [Required(ErrorMessage ="{0} could not be null")]
+        [RegularExpression(@"^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$",ErrorMessage ="Please fill in correct {0}")]
         public string Email { get; set; }
         public Nullable<int> StatusId { get; set; }
     }
